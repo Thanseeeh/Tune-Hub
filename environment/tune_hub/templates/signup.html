@@ -1,0 +1,60 @@
+{% extends 'login.html' %}
+
+{% block title %}Tune-Hub-SignUp{% endblock %}
+
+{% block content %}
+
+            <!-- SignUp heading -->
+            <div class="form-check d-flex justify-content-center mb-4">
+                <h1 class="heading" for="heading">Sign-Up Here</h1>
+            </div>
+            <div class="form-check d-flex justify-content-center mb-4" style="margin-top: -20px">
+                <p class="para" for="para">Already have an account ? <a href=""> Login </a></p>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <input type="text" id="first_name" class="form-control" />
+                        <label class="form-label" for="first_name">First name</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <input type="text" id="last_name" class="form-control" />
+                        <label class="form-label" for="last_name">Last name</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+                <input type="email" id="email" class="form-control" />
+                <label class="form-label" for="email">Email address</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <input type="password" id="password" class="form-control" />
+                        <label class="form-label" for="password">Password</label>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="form-outline">
+                        <input type="password" id="confirm_password" class="form-control" />
+                        <label class="form-label" for="confirm_password">Confirm Password</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary mb-4">Sign up</button>
+
+            <!-- Credits -->
+            <div class="text-center">
+                <p>"Listen to your favorite music anytime, anywhere with Tune Hub. Try it now!"</p>
+            </div>
+
+{% endblock %}

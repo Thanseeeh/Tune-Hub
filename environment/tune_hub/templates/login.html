@@ -1,16 +1,87 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
+        <title>{% block title%}Tune-Hub-Login{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static '/css/login.css' %}">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <h1></h1>
+        <!-- Section: Design Block -->
+    <section class="background-radial-gradient overflow-hidden">
+
+        <div class="container px-4 py-5 px-md-2 text-center text-lg-start my-5">
+            <div class="row gx-lg-5 align-items-center mb-5 my-5">
+                <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
+                    <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 75%)">
+                        Welcome to <br />
+                        <span style="color: hsl(218, 81%, 95%)">Tune Hub </span>
+                    </h1>
+                    <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
+                        In search of your favorite Music ? We will provide you the best music exprerience ever. Listen to the Music for Every Mood. 
+                    </p>
+                </div>
+        
+                <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                    <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                    <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+        
+                    <div class="card bg-glass">
+                        <div class="card-body px-4 py-5 px-md-5">
+                            <form>
+
+                                {% block content %}
+                                
+                                <!-- Login heading -->
+                                <div class="form-check d-flex justify-content-center mb-4">
+                                    <h1 class="heading" for="heading">Login Here</h1>
+                                </div>
+                                <div class="form-check d-flex justify-content-center mb-4" style="margin-top: -20px">
+                                    <p class="para" for="para">Not registered on Tune Hub yet ? <a href=""> SIGN UP</a></p>
+                                </div>
+
+                                <!-- Username input -->
+                                <div class="form-outline mb-4">
+                                    <input type="username" id="username" class="form-control" />
+                                    <label class="form-label" for="username">Username</label>
+                                </div>
+        
+                                <!-- Password input -->
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="password" class="form-control" />
+                                    <label class="form-label" for="password">Password</label>
+                                </div>
+        
+                                <!-- Submit button -->
+                                <button type="submit" class="btn btn-primary mb-4">Login</button>
+        
+                                <!-- Credits -->
+                                <div class="text-center">
+                                    <p>"Upgrade your music listening experience with our app. Enjoy high-quality sound and create custom playlists."</p>
+                                </div>
+
+                                {% endblock %}
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+  <!-- Section: Design Block -->
+
+
         
         <script src="" async defer></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     </body>
 </html>

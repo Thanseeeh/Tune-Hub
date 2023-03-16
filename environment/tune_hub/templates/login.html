@@ -37,13 +37,13 @@
                             <form>
 
                                 {% block content %}
-                                
+
                                 <!-- Login heading -->
                                 <div class="form-check d-flex justify-content-center mb-4">
                                     <h1 class="heading" for="heading">Login Here</h1>
                                 </div>
                                 <div class="form-check d-flex justify-content-center mb-4" style="margin-top: -20px">
-                                    <p class="para" for="para">Not registered on Tune Hub yet ? <a href=""> SIGN UP</a></p>
+                                    <p class="para" for="para">Not registered on Tune Hub yet ? <a href="{% url 'signup' %}"> SIGN UP</a></p>
                                 </div>
 
                                 <!-- Username input -->

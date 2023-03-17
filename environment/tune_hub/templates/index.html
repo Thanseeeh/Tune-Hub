@@ -16,13 +16,13 @@
           </style>
     </head>
     <body>
-        
+
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
                 <img src="{% static '/images/favicon.ico' %}" class="logo position-fixed">
                 <h3 class="logo-name position-fixed">Tune Hub</h3>
                 <div class="navbar-collapse d-flex justify-content-end">
-                    <button class="btn btn-outline-danger position-fixed" type="submit">Logout</button>
+                    <a href={% url 'logout_user' %} type="button" class="btn btn-outline-danger position-fixed">Logout</a>
                 </div>
             </div>
         </nav>

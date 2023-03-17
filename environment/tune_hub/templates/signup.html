@@ -4,6 +4,10 @@
 
 {% block content %}
 
+        <form action="{% url "signup" %}" method="POST">
+
+            {% csrf_token %}
+
             <!-- SignUp heading -->
             <div class="form-check d-flex justify-content-center mb-4">
                 <h1 class="heading" for="heading">Sign-Up Here</h1>
@@ -15,21 +19,21 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="text" id="first_name" class="form-control" />
-                        <label class="form-label" for="first_name">First name</label>
+                        <input type="text" id="username" class="form-control" name="username"/>
+                        <label class="form-label" for="username">Username</label>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="text" id="last_name" class="form-control" />
-                        <label class="form-label" for="last_name">Last name</label>
+                        <input type="text" id="phone" class="form-control" name="phone"/>
+                        <label class="form-label" for="phone">Phone</label>
                     </div>
                 </div>
             </div>
 
             <!-- Email input -->
             <div class="form-outline mb-4">
-                <input type="email" id="email" class="form-control" />
+                <input type="email" id="email" class="form-control" name="email"/>
                 <label class="form-label" for="email">Email address</label>
             </div>
 
@@ -37,13 +41,13 @@
             <div class="row">
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="password" id="password" class="form-control" />
+                        <input type="password" id="password" class="form-control" name="password"/>
                         <label class="form-label" for="password">Password</label>
                     </div>
                 </div>
                 <div class="col-md-6 mb-4">
                     <div class="form-outline">
-                        <input type="password" id="confirm_password" class="form-control" />
+                        <input type="password" id="confirm_password" class="form-control" name="confirm_password"/>
                         <label class="form-label" for="confirm_password">Confirm Password</label>
                     </div>
                 </div>
@@ -56,5 +60,18 @@
             <div class="text-center">
                 <p>"Listen to your favorite music anytime, anywhere with Tune Hub. Try it now!"</p>
             </div>
+
+        </form>
+
+        <div class="form-group">
+
+            {% for message in messages %}
+
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            
+            {% endfor %}
+        </div>
 
 {% endblock %}

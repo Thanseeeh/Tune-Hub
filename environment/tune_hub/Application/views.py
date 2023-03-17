@@ -11,3 +11,6 @@ def signup(request):
 
 def index(request):
     return render(request, 'index.html')
+
+def admins(request):
+    return render(request, 'admin.html')

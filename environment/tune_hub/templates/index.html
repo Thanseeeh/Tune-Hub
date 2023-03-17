@@ -5,24 +5,30 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Tune-Hub</title>
+        <title>{% block title %}Tune-Hub{% endblock %}</title>
         <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{% static '/css/index.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            body {background:#262626;}
+          </style>
     </head>
     <body>
+        
         <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <img src="{% static '/images/favicon.ico' %}" class="logo">
-                <h3 class="logo-name">Tune Hub</h3>
-                <h6>hello </h6>
+                <img src="{% static '/images/favicon.ico' %}" class="logo position-fixed">
+                <h3 class="logo-name position-fixed">Tune Hub</h3>
                 <div class="navbar-collapse d-flex justify-content-end">
-                    <button class="btn btn-outline-danger" type="submit">Logout</button>
+                    <button class="btn btn-outline-danger position-fixed" type="submit">Logout</button>
                 </div>
             </div>
         </nav>
+        {% block content %}
+        
+        {% endblock %}
 
 
         <script src="" async defer></script>

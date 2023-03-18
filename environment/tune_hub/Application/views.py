@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
+import re
 
 # Create your views here.
 
@@ -14,13 +15,41 @@ def signup(request):
         email =request.POST['email']
         password = request.POST['password']
         confirm_password = request.POST['confirm_password']
+
+        # space validation 
         if first_name.strip() == "" or username.strip() == "" or email.strip() == "" or password.strip() == "" or confirm_password.strip() == "":
-            messages.info(request, 'Enter the required section')
+            messages.info(request, 'Enter the required Fields')
             return redirect(signup)
+        
+        # first_name validation
+        if not re.match(r'^[a-zA-Z]{3,20}$', first_name):
+            messages.info(request, 'First name must be between 3 and 20 characters and contain only alphabets')
+            return redirect(signup)
+        
+        # Username validation
+        if not re.match(r'^.{3,20}$', username):
+            messages.info(request, 'Username must be between 3 and 20 characters')
+            return redirect(signup)
+        
+        # Email validation
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
+            messages.info(request, 'Invalid email format')
+            return redirect(signup)
+        
+        # Password validation
+        if not re.match(r'^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{5,20}$', password):
+            messages.info(request, 'Password must contain at least one letter and one digit, and be between 5 and 20 characters')
+            return redirect(signup)
+        
         if password==confirm_password:
             if User.objects.filter(username=username).exists():
-                messages.info(request, 'Email is exist')
+                messages.info(request, 'Username is already taken')
                 return redirect(signup) 
+            
+            if  User.objects.filter(email=email).exists():
+                messages.info(request, 'Email is already taken')
+                return redirect(signup) 
+            
             else:
                 user = User.objects.create_user(first_name=first_name, username=username, email=email, password=password)
                 user.set_password(password) 

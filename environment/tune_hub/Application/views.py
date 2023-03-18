@@ -95,6 +95,20 @@ def admin(request):
     context = {'data': data, 'total_user': total_user }
     return render(request, 'admin.html', context)
 
+def login_admin(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        if username == 'thanseeeeeh' and password == 'ellikkal7':
+            # valid credentials, log in the user and redirect to admin page
+            return redirect('admin')
+        else:
+            messages.info(request, 'Invalid Username or Password')
+            return redirect('login_admin')
+    else:
+        return render(request, 'admin_login.html')
+
 
 def index(request):
     return render(request, 'index.html')

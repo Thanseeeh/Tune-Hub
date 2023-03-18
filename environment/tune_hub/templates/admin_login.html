@@ -5,7 +5,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{% block title%}Tune-Hub-Login{% endblock %}</title>
+        <title>Tune-Hub/admin-login</title>
         <link rel="icon" type="image/x-icon" href="{% static '/images/favicon.ico' %}">
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,17 +16,17 @@
         <!-- Section: Design Block -->
     <section class="background-radial-gradient overflow-hidden">
         
-        <a href="{% url 'login_admin' %}" class="btn btn-dark" style="margin-left: 1vw; font-size: 12px; margin-top: 1vw; font-weight: 700;"> Admin ? </a>
+        <a href="{% url 'login_user' %}" class="btn btn-dark" style="margin-left: 1vw; font-size: 12px; margin-top: 1vw; font-weight: 700;"> User ? </a>
 
         <div class="container px-4 py-4 px-md-2 text-center text-lg-start my-5">
             <div class="row gx-lg-5 align-items-center mb-5 my-5">
                 <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                     <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 75%)">
-                        Welcome to <br />
-                        <span style="color: hsl(218, 81%, 95%)">Tune Hub </span>
+                        Welcome to Tune Hub<br />
+                        <span style="color: hsl(218, 81%, 95%)">Mr.Admin</span>
                     </h1>
                     <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
-                        In search of your favorite Music ? We will provide you the best music exprerience ever. Listen to the Music for Every Mood. 
+                        Want to update user details ? Login for the admin panel.
                     </p>
                 </div>
         
@@ -37,18 +37,13 @@
                     <div class="card bg-glass">
                         <div class="card-body px-4 py-5 px-md-5">
 
-                            {% block content %}
-
-                            <form action="{% url 'login_user' %}" method="post">
+                            <form action="{% url 'login_admin' %}" method="post">
 
                                 {% csrf_token%}
 
                                 <!-- Login heading -->
                                 <div class="form-check d-flex justify-content-center mb-4">
-                                    <h1 class="heading" for="heading">Login Here</h1>
-                                </div>
-                                <div class="form-check d-flex justify-content-center mb-4" style="margin-top: -20px">
-                                    <p class="para" for="para">Not registered on Tune Hub yet ? <a href="{% url 'signup' %}"> SIGN UP</a></p>
+                                    <h1 class="heading" for="heading">Admin Login</h1>
                                 </div>
 
                                 <!-- Username input -->
@@ -68,7 +63,7 @@
         
                                 <!-- Credits -->
                                 <div class="text-center">
-                                    <p>"Upgrade your music listening experience with our app. Enjoy high-quality sound and create custom playlists."</p>
+                                    <p>"Lets go through some datas..."</p>
                                 </div>
 
                             </form>
@@ -84,8 +79,6 @@
                                 {% endfor %}
                                 
                             </div>
-
-                            {% endblock %}
 
                         </div>
                     </div>

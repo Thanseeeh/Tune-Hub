@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
-from .models import User
 
 # Create your views here.
 
@@ -10,12 +9,12 @@ def signup(request):
     if 'username' in request.session:
         return redirect(index)
     if request.method == 'POST':
-        username = request.POST.get['username']
-        phone = request.POST.get['phone']
-        email =request.POST.get['email']
-        password = request.POST.get['password']
+        first_name = request.POST['first_name']
+        username = request.POST['username']
+        email =request.POST['email']
+        password = request.POST['password']
         confirm_password = request.POST['confirm_password']
-        if username.strip() == "" or phone.strip() == "" or email.strip() == "" or password.strip() == "" or confirm_password.strip() == "":
+        if first_name.strip() == "" or username.strip() == "" or email.strip() == "" or password.strip() == "" or confirm_password.strip() == "":
             messages.info(request, 'Enter the required section')
             return redirect(signup)
         if password==confirm_password:
@@ -23,7 +22,7 @@ def signup(request):
                 messages.info(request, 'Email is exist')
                 return redirect(signup) 
             else:
-                user = User.objects.create_user(username=username, phone=phone, email=email, password=password)
+                user = User.objects.create_user(first_name=first_name, username=username, email=email, password=password)
                 user.set_password(password) 
                 user.save()
                 return redirect('login_user')
@@ -60,8 +59,12 @@ def logout_user(request):
     return redirect('login_user')
 
 
+def admin(request):
+    data = User.objects.all()
+    return render(request, 'admin.html', {'data': data})
+
+
 def index(request):
     return render(request, 'index.html')
 
-def admin(request):
-    return render(request, 'admin.html')
+

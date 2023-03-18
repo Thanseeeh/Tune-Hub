@@ -61,7 +61,10 @@ def logout_user(request):
 
 def admin(request):
     data = User.objects.all()
-    return render(request, 'admin.html', {'data': data})
+    total_user = data.count()
+
+    context = {'data': data, 'total_user': total_user }
+    return render(request, 'admin.html', context)
 
 
 def index(request):

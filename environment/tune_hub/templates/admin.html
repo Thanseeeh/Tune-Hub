@@ -14,7 +14,7 @@
             <div class="card-body">
             <h5 class="card-title" style="font-weight: 700; text-align: center;">No. of Users</h5>
             <hr>
-            <p class="card-text" style="font-size: 20px; font-weight: 700; text-align: center;">5</p>
+            <p class="card-text" style="font-size: 20px; font-weight: 700; text-align: center;">{{total_user}}</p>
             </div>
         </div>
         </div>
@@ -46,30 +46,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td>Larry</td>
-        <td>the Bird</td>
-        <td>@twitter</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
+        {% for i in data %}
+            <tr>
+                <th scope="row">{{i.id}}</th>
+                <td>{{i.first_name}}</td>
+                <td>{{i.username}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.password}}</td>
+                <td>{{i.date_joined}}</td>
+            </tr>
+        {% endfor %}
     </tbody>
   </table>
 

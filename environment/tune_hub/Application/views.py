@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth.models import User,auth
+from .models import User
 
 # Create your views here.
 
@@ -9,10 +10,10 @@ def signup(request):
     if 'username' in request.session:
         return redirect(index)
     if request.method == 'POST':
-        username = request.POST['username']
-        phone = request.POST['phone']
-        email =request.POST['email']
-        password = request.POST['password']
+        username = request.POST.get['username']
+        phone = request.POST.get['phone']
+        email =request.POST.get['email']
+        password = request.POST.get['password']
         confirm_password = request.POST['confirm_password']
         if username.strip() == "" or phone.strip() == "" or email.strip() == "" or password.strip() == "" or confirm_password.strip() == "":
             messages.info(request, 'Enter the required section')
@@ -62,5 +63,5 @@ def logout_user(request):
 def index(request):
     return render(request, 'index.html')
 
-def admins(request):
+def admin(request):
     return render(request, 'admin.html')

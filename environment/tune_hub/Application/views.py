@@ -93,15 +93,21 @@ def admin(request):
     total_user = data.count()
 
     context = {'data': data, 'total_user': total_user }
-    return render(request, 'admin.html', context)
+    if 'username' in request.session:
+        return render(request, 'admin.html', context)
+    else:
+        return render(request, 'admin_login.html')
 
 def login_admin(request):
+    if 'username' in request.session:
+        return redirect(admin)
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
 
         if username == 'thanseeeeeh' and password == 'ellikkal7':
             # valid credentials, log in the user and redirect to admin page
+            request.session['username'] = username
             return redirect('admin')
         else:
             messages.info(request, 'Invalid Username or Password')
@@ -152,6 +158,9 @@ def update_user(request, user_id):
 
 
 def index(request):
-    return render(request, 'index.html')
+    if 'username' in request.session:
+        return render(request, 'index.html')
+    else:
+        return render(request, 'login.html')
 
 

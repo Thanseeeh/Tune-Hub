@@ -108,6 +108,47 @@ def login_admin(request):
             return redirect('login_admin')
     else:
         return render(request, 'admin_login.html')
+    
+
+def delete_user(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.delete()
+    return redirect('admin')
+
+
+def update_user(request, user_id):
+    user = User.objects.get(id=user_id)
+    user.delete()
+
+    if request.method == 'POST':
+        first_name = request.POST['first_name']
+        email = request.POST['email']
+
+        # validate the input fields
+        if first_name.strip() == "" or email.strip() == "":
+            messages.info(request, 'Enter the required Fields')
+            return redirect('update_user', user_id=user_id)
+
+        if not re.match(r'^[a-zA-Z]{3,20}$', first_name):
+            messages.info(request, 'First name must be between 3 and 20 characters and contain only alphabets')
+            return redirect('update_user', user_id=user_id)
+
+        if not re.match(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$', email):
+            messages.info(request, 'Invalid email format')
+            return redirect('update_user', user_id=user_id)
+
+        # update the user
+        user.first_name = first_name
+        user.email = email
+        user.save()
+
+        messages.success(request, 'User updated successfully')
+        return redirect('admin')
+
+    context = {'user': user}
+    return render(request, 'update_user.html', context)
+
+    
 
 
 def index(request):

@@ -34,7 +34,7 @@
 
 <h1 class="text-light mt-5 text-center">Users Details</h1>
 
-<table class="table container-fluid mt-3" style="background: #ffff; width: 85%">
+<table class="table container-fluid mt-3" style="background: #ffff; width: 90%">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -43,6 +43,8 @@
         <th scope="col">Email address</th>
         <th scope="col">Password</th>
         <th scope="col">Date joined</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -54,6 +56,8 @@
                 <td>{{i.email}}</td>
                 <td>{{i.password}}</td>
                 <td>{{i.date_joined}}</td>
+                <td><a class="btn btn-sm btn-info" href="{% url 'update_user' i.id %}">Update</a></td>
+                <td><a class="btn btn-sm btn-danger" href="{% url 'delete_user' i.id %}">Delete</a></td>
             </tr>
         {% endfor %}
     </tbody>

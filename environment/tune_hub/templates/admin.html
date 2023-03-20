@@ -4,7 +4,7 @@
 
 {% block content%}
 
-<h1 class="text-light mt-3 text-center">Welcome Admin</h1>
+<h1 class="text-light mt-5 text-center">Welcome Admin</h1>
 
 {% comment %} Counts {% endcomment %}
 <div class="container" style="width: 45%">
@@ -36,7 +36,14 @@
 
 <h1 class="text-light mt-5 text-center">Users Details</h1>
 
-<table class="table container-fluid mt-3" style="background: #ffff; width: 90%">
+<form method="GET" action="{% url 'admin' %}">
+  <div class="bg-glass container-fluid mt-5" style="width: 92%; display: flex; justify-content: end">
+    <input type="text" name="q" placeholder="Search users...">
+    <button type="submit" class="btn btn-sm btn-info">Search</button>
+  </div>
+</form>
+
+<table class="table container-fluid mt-4" style="background: #ffff; width: 90%">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -136,15 +143,14 @@
   </div>
 
 
+{% comment %} update Music {% endcomment %}
 
 
+  <h1 class="text-light mt-5 text-center">Music Details</h1>
 
-  <h1 class="text-light mt-5 text-center">Update musics</h1>
-
-<table class="table container-fluid mt-3" style="background: #ffff; width: 90%">
+<table class="table container-fluid mt-5" style="background: #ffff; width: 90%">
     <thead>
       <tr>
-        <th scope="col">Id</th>
         <th scope="col">Music Name</th>
         <th scope="col">Music Description</th>
         <th scope="col">Music image</th>
@@ -155,7 +161,6 @@
     <tbody>
         {% for i in content %}
             <tr>
-                <th scope="row">{{i.id}}</th>
                 <td>{{i.music_name}}</td>
                 <td>{{i.music_desc}}</td>
                 <td>{{i.music_img}}</td>
@@ -165,5 +170,63 @@
         {% endfor %}
     </tbody>
   </table>
+
+
+{% comment %} add music {% endcomment %}
+
+
+<h1 class="text-light mt-5 text-center">Add Musics</h1>
+
+<div class="card bg-glass container-fluid mt-5 mb-5" style="width: 40%">
+  <div class="card-body px-4 py-5 px-md-5">
+    <form action="{% url "index" %}" method="POST">
+
+    {% csrf_token %}
+
+    <!-- SignUp heading -->
+
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="form-outline">
+            <input type="text" id="music_name" class="form-control" name="music_name"/>
+            <label class="form-label" for="music_name">Music Name</label>
+          </div>
+        </div>
+        <div class="col-md-12 mb-4">
+          <div class="form-outline">
+            <input type="text" id="music_desc" class="form-control" name="music_desc"/>
+            <label class="form-label" for="music_desc">Music Description</label>
+          </div>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="row">
+        <div class="col-md-12 mb-4">
+          <div class="form-outline">
+            <input type="file" id="music_img" class="form-control" name="music_img" accept="image/*"/>
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="text-center">
+        <button type="submit" class="btn btn-info">Add Music</button>
+      </div>
+
+    </form>
+
+    <div class="form-group">
+
+            {% for message in messages %}
+
+            <div class="alert alert-danger" role="alert">
+                {{message}}
+            </div>
+            
+            {% endfor %}
+        </div>
+    </div>
+  </div>
 
 {% endblock %}

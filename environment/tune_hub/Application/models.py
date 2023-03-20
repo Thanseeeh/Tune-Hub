@@ -8,3 +8,12 @@ class User(models.Model):
     email = models.EmailField()
     password = models.CharField(max_length=50)
     date_joined = models.DateTimeField(auto_now_add=True)
+
+
+class Musics(models.Model):
+    music_name = models.CharField(max_length=255)
+    music_desc = models.CharField(max_length=255)
+    music_img = models.ImageField(upload_to='musics')
+
+
+

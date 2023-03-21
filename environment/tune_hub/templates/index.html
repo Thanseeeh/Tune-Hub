@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="{% static '/css/index.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
-            body {background:#262626;}
+            body {background:#323232;}
           </style>
     </head>
     <body>
@@ -28,53 +28,101 @@
         </nav>
         {% block content %}
 
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="container-fluid d-flex justify-content-center mt-5" style="width: 90%">
+          <div class="row row-col-md-3">
+            <div class="row">
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Chill Hits</h5>
+                  <p class="card-text" style="color: #9d9d9d">Kick back to the best new and recent chills</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify2.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">All outs 2010</h5>
+                  <p class="card-text" style="color: #9d9d9d">The biggest songs of 2010s. sit back and enjoy</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify3.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Internet Rewind</h5>
+                  <p class="card-text" style="color: #9d9d9d">Viral classics. Yup we are at that stage.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify4.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Pop Shots</h5>
+                  <p class="card-text" style="color: #9d9d9d">All your pop favorites. MileyCyrus, Harry styles...</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify5.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Adele Mix</h5>
+                  <p class="card-text" style="color: #9d9d9d">Top favorites of Adele and other few hits.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify6.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Happy Favorites</h5>
+                  <p class="card-text" style="color: #9d9d9d">Put a smile on your face is the intention of these happy favorites.</p>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <div class="container-fluid d-flex justify-content-center mt-5" style="width: 90%">
+          <div class="row row-col-md-3">
+            <div class="row">
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify7.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Rodigo Mix</h5>
+                  <p class="card-text" style="color: #9d9d9d">Top favorites of Rodigo Olivia and other few hits.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify8.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Heart Beats</h5>
+                  <p class="card-text" style="color: #9d9d9d">Dance for the Music for the Heart for 3 hour.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify9.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Alone Again</h5>
+                  <p class="card-text" style="color: #9d9d9d">Being Alone again? can be tough but also be relaxed.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify10.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Trending Now</h5>
+                  <p class="card-text" style="color: #9d9d9d">Every tracks that you need to be heared.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify11.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Hot Hits Globe</h5>
+                  <p class="card-text" style="color: #9d9d9d">Most hit music from the past decade from whole earth.</p>
+                </div>
+              </div>
+              <div class="card" style="width: 15rem; margin-right: 3rem; background: black">
+                <img src="{% static '/images/spotify12.jpeg' %}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-text text-light">Goosebumps</h5>
+                  <p class="card-text" style="color: #9d9d9d">You up? ready for the goosebumps. Listen Now!</p>
+                </div>
+              </div>
             </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
-        </div>
-
-        <div class="card" style="width: 18rem;">
-            <img src="{% static '/images/spotify1.jpeg' %}" class="card-img-top" alt="...">
-            <div class="card-body">
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            </div>
+          </div>
         </div>
         
         {% endblock %}
